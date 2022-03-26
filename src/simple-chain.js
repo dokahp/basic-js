@@ -1,29 +1,32 @@
+const { AssertionError } = require('chai');
 const { NotImplementedError } = require('../extensions/index.js');
 
 /**
  * Implement chainMaker object according to task description
  * 
  */
-const chainMaker = {
+ const chainMaker = {
+  'chain': '',
   getLength() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    // return this.chain.split("~~").length
   },
-  addLink(/* value */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  addLink(value) {
+    // this.chain += `( ${value} )~~`
+    // return this
   },
-  removeLink(/* position */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  removeLink(position) {
+    // if (position < 0 || position > this.chain.split("~~").length) {throw AssertionError('You can\'t remove incorrect link!') }
+    // this.chain = this.chain.split('~~')
+    // this.chain = [...this.chain.slice(0, position - 1), ...this.chain.slice(position)].join('~~')
+    // return this
   },
   reverseChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    // this.chain = this.chain.split('~~').reverse().join('~~')
+    // return this
   },
   finishChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    // this.chain = this.chain.replace(/^~~|~~$/, '')
+    // return this.chain
   }
 };
 
