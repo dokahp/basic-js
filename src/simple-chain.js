@@ -15,7 +15,7 @@ const { NotImplementedError } = require('../extensions/index.js');
     // return this
   },
   removeLink(position) {
-    // if (position < 0 || position > this.chain.split("~~").length) {throw AssertionError('You can\'t remove incorrect link!') }
+    // if (position < 0 || position > this.chain.split("~~").length) {throw Error('You can\'t remove incorrect link!') }
     // this.chain = this.chain.split('~~')
     // this.chain = [...this.chain.slice(0, position - 1), ...this.chain.slice(position)].join('~~')
     // return this
