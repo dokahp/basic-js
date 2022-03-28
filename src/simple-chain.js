@@ -6,32 +6,32 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
  const chainMaker = {
-  'chain': '',
+  'chain': [],
   getLength() {
-    throw new NotImplementedError('Not implemented');
-    // return this.chain.split("~~").length
+    return this.chain.length
   },
   addLink(value) {
-    throw new NotImplementedError('Not implemented');
-    // this.chain += `( ${value} )~~`
-    // return this
+    this.chain = [...this.chain, `( ${value} )`] 
+    return this
   },
   removeLink(position) {
-    throw new NotImplementedError('Not implemented');
-    // if (position < 0 || position > this.chain.split("~~").length) {throw Error('You can\'t remove incorrect link!') }
-    // this.chain = this.chain.split('~~')
-    // this.chain = [...this.chain.slice(0, position - 1), ...this.chain.slice(position)].join('~~')
-    // return this
+    if (!Number.isInteger(position) || position < 1 || position > this.getLength()) {
+      this.chain = [] 
+      throw new Error('You can\'t remove incorrect link!')
+    }
+    this.chain.splice(position - 1, 1)
+    return this
   },
   reverseChain() {
-    throw new NotImplementedError('Not implemented');
-    // this.chain = this.chain.split('~~').reverse().join('~~')
-    // return this
+    this.chain = this.chain.reverse()
+    return this
   },
   finishChain() {
-    throw new NotImplementedError('Not implemented');
-    // this.chain = this.chain.replace(/^~~|~~$/, '')
-    // return this.chain
+    let result = ''
+    //this.chain = this.chain.replace(/^~~|~~$/, '')
+    result = this.chain.map((el, i) => i > 0? `~~${el}`: `${el}`).join('')
+    this.chain = []
+    return result
   }
 };
 
